@@ -1,0 +1,55 @@
+:root {
+    --color-primary-a0: #6989a5;
+    --color-primary-a10: #7995af;
+    --color-primary-a20: #8aa2b8;
+    --color-surface-a0: #121212;
+    --color-surface-a10: #282828;
+    --color-surface-a20: #3f3f3f;
+    --color-text-primary: #ffffff;
+  }
+  
+  .main-navbar {
+    background-color: var(--color-surface-a10) !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0 !important;
+    border-bottom: 1px solid var(--color-surface-a20);
+  }
+  
+  .navbar-brand {
+    padding: 0;
+  }
+  
+  .navbar-brand img {
+    height: 40px;
+    width: auto;
+  }
+  
+  .nav-item {
+    margin: 0 0.5rem;
+  }
+  
+  .nav-link {
+    color: var(--color-text-primary) !important;
+    padding: 0.5rem 1rem !important;
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+  }
+  
+  .nav-link:hover {
+    background-color: var(--color-surface-a20);
+  }
+  
+  .nav-link.active {
+    background-color: var(--color-primary-a0);
+    color: var(--color-text-primary) !important;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 1rem !important;
+  }

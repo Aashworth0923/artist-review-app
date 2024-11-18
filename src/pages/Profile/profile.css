@@ -1,0 +1,75 @@
+:root {
+    --color-primary-a0: #6989a5;
+    --color-primary-a20: #8aa2b8;
+    --color-surface-a0: #121212;
+    --color-surface-a10: #282828;
+    --color-surface-a20: #3f3f3f;
+    --color-surface-a30: #575757;
+    --color-text-primary: #ffffff;
+  }
+  
+  .profile-container {
+    background-color: var(--color-surface-a0);
+    color: var(--color-text-primary);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .profile-header {
+    background-color: var(--color-surface-a10);
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .back-button {
+    background-color: var(--color-primary-a0);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s;
+  }
+  
+  .back-button:hover {
+    background-color: var(--color-primary-a20);
+  }
+  
+  .stats-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-box {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: var(--color-surface-a20);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .review-card {
+    background-color: var(--color-surface-a10);
+    border: 1px solid var(--color-surface-a30);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+  }
+  
+  .no-reviews {
+    text-align: center;
+    padding: 3rem;
+    background: var(--color-surface-a10);
+    border-radius: 8px;
+  }

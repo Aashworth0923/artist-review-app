@@ -1,0 +1,37 @@
+:root {
+  --color-surface-a0: #121212;
+  --color-surface-a10: #282828;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-surface-a0);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: var(--color-surface-a0);
+}
+
+/* Remove any unwanted spacing from Reactstrap components */
+.container {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+.navbar {
+  margin: 0 !important;
+}
