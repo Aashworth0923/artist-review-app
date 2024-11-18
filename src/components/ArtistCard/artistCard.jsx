@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
-import { useReviews } from '../../context/reviewContext';
-import { useNavigate } from 'react-router-dom';
 import './artistCard.css';
 
-function ArtistCard({ artist, onArtistSelect, onGenreClick }) {
-  const [show, setShow] = useState(false);
-  const [rating, setRating] = useState(0);
-  const { addReview } = useReviews();
-  const navigate = useNavigate();
-
+function ArtistCard({ artist, onArtistSelect }) {
   const handleClick = (e) => {
-    
     if (
       e.target.className.includes('artist-genre') || 
       e.target.className.includes('review-btn')

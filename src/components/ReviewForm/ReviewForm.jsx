@@ -1,17 +1,49 @@
+//TO DO: move if statement to ternary oporator
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Button, FormGroup } from 'reactstrap';
 import ReactStars from 'react-rating-stars-component';
+import { useReviews } from '../../context/reviewContext';
 
-const ReviewForm = () => {
+
+const ReviewForm = ({ artist }) => {
+    // first check if review existed previously 
+    const { addReview, reviews } = useReviews();
+    const existingReview = reviews.find(review => review.id === artist.id);
+    if (existingReview) {
+        return (
+            <div className="existing-review">
+                <h3>Your Review</h3>
+                <ReactStars
+                    value={existingReview.rating}
+                    count={5}
+                    size={24}
+                    edit={false}
+                    activeColor="#ffd700"
+                />
+                <p>{existingReview.comment}</p>
+            </div>
+        );
+    }
+    // else populate empty review form
     return (
       <Formik
         initialValues={{
           rating: null,
           comment: ''
         }}
-        onSubmit={(values) => {
-          console.log('Form submitted:', values);
+        onSubmit={(values, {resetForm}) => {
+            const review = {
+                id: artist.id,
+                artistName: artist.name,
+                rating: values.rating,
+                followers: artist.followers.total,
+                genres: artist.genres.join(', '),
+                dateReviewed: new Date().toISOString()
+            };
+        
+            addReview(review);
+            resetForm();
         }}
       >
         <Form>

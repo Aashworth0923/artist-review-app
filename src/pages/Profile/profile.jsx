@@ -7,6 +7,7 @@ function Profile() {
   const { reviews } = useReviews();
   const navigate = useNavigate();
 
+  // Date formatting to show when the review occured
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
@@ -49,15 +50,20 @@ function Profile() {
               <div className="review-header">
                 <h2>{review.artistName}</h2>
                 <div className="rating-display">
+                  {/* array(5) creates and empty array of 5 and ... spreads this into 5 undefined slots*/}
                   {[...Array(5)].map((_, index) => (
+                    // span renders a new star for each index and based on rating sets its color if rating =3 them first 3 will be color 1
                     <span 
                       key={index} 
-                      className={`star ${index < review.rating ? 'filled' : ''}`}
+                      style={{ 
+                        color: index < review.rating ? '#ffd700' : '#ddd'
+                      }}
                     >
                       ★
                     </span>
                   ))}
                 </div>
+                <p className="review-comment">{review.comment}</p>
               </div>
               
               <div className="review-details">

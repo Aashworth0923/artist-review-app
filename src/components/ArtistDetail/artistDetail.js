@@ -3,9 +3,9 @@ import './artistDetail.css';
 import ReviewForm from '../ReviewForm/ReviewForm';
 
 const ArtistDetail = ({ artist }) => {
-    const { images, name, followers, genres, popularity, external_urls } = artist;
+    if (!artist) return null;
 
-    
+    const { images, name, followers, genres, popularity, external_urls } = artist;
     const imageUrl = images && images.length > 0 
         ? images[0].url 
         : 'https://via.placeholder.com/300';
@@ -45,8 +45,7 @@ const ArtistDetail = ({ artist }) => {
                         </div>
                     </div>
                 )}
-                    {/* Add review form */}
-                    <ReviewForm artist={artist} />
+                <ReviewForm artist={artist} />
             </div>
         </div>
     );

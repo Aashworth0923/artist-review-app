@@ -9,34 +9,27 @@ function ArtistSearch() {
   const [artists, setArtists] = useState([]);
   const [selectedArtist, setSelectedArtist] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [searchPerformed, setSearchPerformed] = useState(false);
 
-    const selectArtistById = (id) => {
+    // takes the id pased when a user clicks on a card and does a find for that artist
+  const selectArtistById = (id) => {
+    if (selectedArtist && selectedArtist.id === id){
+      setSelectedArtist(null);
+      return;
+    }
     const found = artists.find((artist) => artist.id === id);
     setSelectedArtist(found);
   };
 
   const handleSearch = async (e) => {
+    // e.preventDefault prevents form from refreshing when submitted
     e.preventDefault();
-    if (!query.trim()) {
-      setError('Please enter an artist name');
-      return;
-    }
-
     setLoading(true);
-    setError('');
-    setSearchPerformed(true);
 
     try {
       const results = await spotifyService.searchArtists(query);
       setArtists(results); 
-      if (results.length === 0) {
-        setError('No artists found. Try another search term.');
-      }
     } catch (error) {
       console.error('Search error:', error);
-      setError('Failed to search artists. Please try again.');
     } finally {
       setLoading(false);
     }
