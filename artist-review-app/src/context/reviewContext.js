@@ -7,7 +7,6 @@ export function ReviewProvider({ children }) {
 
   const addReview = (review) => {
     setReviews(prevReviews => [...prevReviews, review]);
-    // Optionally, you could also save to localStorage here
     localStorage.setItem('musicReviews', JSON.stringify([...reviews, review]));
   };
 

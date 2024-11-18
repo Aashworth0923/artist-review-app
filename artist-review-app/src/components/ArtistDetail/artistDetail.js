@@ -4,7 +4,7 @@ import './artistDetail.css';
 const ArtistDetail = ({ artist }) => {
     const { images, name, followers, genres, popularity, external_urls } = artist;
 
-    // Get the first image or use a placeholder
+    
     const imageUrl = images && images.length > 0 
         ? images[0].url 
         : 'https://via.placeholder.com/300';

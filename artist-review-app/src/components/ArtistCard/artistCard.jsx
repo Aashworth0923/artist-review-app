@@ -12,7 +12,7 @@ function ArtistCard({ artist, onArtistSelect, onGenreClick }) {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    // Prevent click from bubbling up if clicking on genre buttons or review button
+    
     if (
       e.target.className.includes('artist-genre') || 
       e.target.className.includes('review-btn')

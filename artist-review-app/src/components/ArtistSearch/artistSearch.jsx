@@ -12,8 +12,7 @@ function ArtistSearch() {
   const [error, setError] = useState('');
   const [searchPerformed, setSearchPerformed] = useState(false);
 
-  // Function to select artist by ID
-  const selectArtistById = (id) => {
+    const selectArtistById = (id) => {
     const found = artists.find((artist) => artist.id === id);
     setSelectedArtist(found);
   };
@@ -31,7 +30,7 @@ function ArtistSearch() {
 
     try {
       const results = await spotifyService.searchArtists(query);
-      setArtists(results); // Store the array of artists
+      setArtists(results); 
       if (results.length === 0) {
         setError('No artists found. Try another search term.');
       }

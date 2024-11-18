@@ -2,8 +2,7 @@ import React from 'react';
 import './modal.css';
 
 const Modal = ({ handleClose, show, children }) => {
-  // Prevent clicks inside modal from closing it
-  const handleModalClick = (e) => {
+    const handleModalClick = (e) => {
     e.stopPropagation();
   };
 
